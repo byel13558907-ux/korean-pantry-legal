@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark"><title>계정 삭제 · Korean Pantry</title>
+<style>
+:root{color-scheme:light dark;--bg:#f6f3ed;--card:#fff;--ink:#17221d;--muted:#687069;--line:#ddd8cf;--accent:#ee7a35;--green:#173d2d;--danger:#a43a34}
+@media(prefers-color-scheme:dark){:root{--bg:#101512;--card:#19211d;--ink:#f4f1ea;--muted:#aab2ac;--line:#313a34;--green:#27553f}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.65 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+main{max-width:760px;margin:0 auto;padding:30px 18px 64px}.brand{font-size:12px;font-weight:900;letter-spacing:.13em;color:var(--accent)}
+h1{font-size:31px;line-height:1.18;margin:10px 0 6px}h2{font-size:18px;margin:0 0 8px}p,li{color:var(--muted)}
+.nav{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}.nav a,.btn{border:0;border-radius:12px;padding:10px 13px;background:var(--green);color:#fff;text-decoration:none;font-weight:850}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;margin:14px 0}.updated{color:var(--muted);font-size:13px}
+label{display:block;font-size:12px;font-weight:850;margin:12px 0 5px}input,textarea,select{width:100%;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:12px;padding:12px;font:inherit}
+textarea{min-height:110px;resize:vertical}.btn{width:100%;cursor:pointer}.btn.danger{background:var(--danger)}.status{margin-top:12px;font-weight:850}.small,footer{font-size:12px;color:var(--muted)}
+a.cardlink{display:block;text-decoration:none;color:inherit}.arrow{float:right;color:var(--accent);font-size:20px;font-weight:900}
+</style></head><body><main>
+<div class="brand">KOREAN PANTRY</div>
+<div class="nav"><a href="index.html">홈</a><a href="privacy.html">개인정보</a><a href="terms.html">이용약관</a><a href="delete.html">계정 삭제</a></div>
+
+<h1>Korean Pantry 계정 삭제</h1><div class="updated">External Account Deletion</div>
+<div class="card"><h2>영구 삭제 안내</h2><p>이 페이지에서는 이메일/비밀번호로 보호된 Korean Pantry 계정을 앱 밖에서도 영구 삭제할 수 있습니다.</p><p>삭제하면 계정과 개인 클라우드 데이터, 프로필, 반응, 신고, 운영 데이터 및 해당 계정이 올린 PANTRY TALK 사진이 삭제됩니다. 공유 상품 정보는 계정 식별자를 제거한 상태로 남을 수 있습니다.</p></div>
+<div class="card"><h2>로그인 후 삭제</h2>
+<form id="deleteForm">
+<label>이메일</label><input name="email" type="email" autocomplete="email" required>
+<label>비밀번호</label><input name="password" type="password" autocomplete="current-password" minlength="8" required>
+<label>확인을 위해 DELETE 입력</label><input name="confirm" autocomplete="off" required>
+<button class="btn danger" type="submit">계정 영구 삭제</button><div id="deleteStatus" class="status"></div>
+</form>
+<p class="small">이메일/비밀번호로 보호한 적 없는 임시 계정은 외부 로그인 정보가 없습니다. 앱에서 계정을 보호한 뒤 삭제하거나 앱 데이터를 제거하세요.</p></div>
+
+<footer>Korean Pantry · Updated August 15, 2026</footer>
+</main>
+<script>
+const BASE='https://chvkbpzfymbfifkhubhb.supabase.co';
+const KEY='sb_publishable_Hvpkq9-Q3E-WpvREXqBuyw_1YQU7aVU';
+const form=document.getElementById('deleteForm');
+form.addEventListener('submit',async(e)=>{
+  e.preventDefault();
+  const status=document.getElementById('deleteStatus');
+  const f=new FormData(form);
+  if(String(f.get('confirm')).trim()!=='DELETE'){status.textContent='DELETE를 정확히 입력해 주세요.';return;}
+  if(!confirm('이 Korean Pantry 계정을 영구 삭제할까요? 이 작업은 되돌릴 수 없습니다.')) return;
+  status.textContent='계정 확인 중…';
+  try{
+    const auth=await fetch(BASE+'/auth/v1/token?grant_type=password',{
+      method:'POST',
+      headers:{apikey:KEY,'content-type':'application/json'},
+      body:JSON.stringify({email:String(f.get('email')).trim(),password:String(f.get('password'))})
+    });
+    const aj=await auth.json();
+    if(!auth.ok||!aj.access_token) throw new Error(aj.error_description||aj.msg||'이메일 또는 비밀번호를 확인해 주세요.');
+    status.textContent='계정 삭제 중…';
+    const del=await fetch(BASE+'/functions/v1/delete-account',{
+      method:'POST',
+      headers:{apikey:KEY,authorization:'Bearer '+aj.access_token,'content-type':'application/json'},
+      body:JSON.stringify({confirm:'DELETE'})
+    });
+    const dj=await del.json();
+    if(!del.ok||!dj.ok) throw new Error(dj.error||'계정을 삭제하지 못했어요.');
+    form.reset(); status.textContent='계정이 영구 삭제됐어요.';
+  }catch(err){status.textContent=err.message||'계정을 삭제하지 못했어요.';}
+});
+</script>
+</body></html>
