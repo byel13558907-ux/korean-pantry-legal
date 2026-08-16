@@ -3,17 +3,71 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#F7F5F0">
-<title>Korean Pantry</title>
-<style>html,body{margin:0;min-height:100%;background:#F7F5F0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}.loading{min-height:100vh;display:grid;place-items:center;color:#18211C;font-weight:800}.loading span{display:flex;align-items:center;gap:10px}.dot{width:10px;height:10px;border-radius:50%;background:#F07832;animation:p 1s infinite alternate}@keyframes p{to{opacity:.25}}</style>
+<meta name="theme-color" content="#fbf6ed">
+<meta name="description" content="Korean Pantry helps you cook Korean food with the ingredients you already have.">
+<title>Korean Pantry · Cook Korean with what you have</title>
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:#fbf6ed}
+body{margin:0;background:#fbf6ed;font-family:Arial,sans-serif}
+#top{width:min(100%,887px);margin:0 auto;position:relative;min-height:100vh;background:#fbf6ed}
+#approved-page{display:block;width:100%;height:auto}
+.hotspot{position:absolute;display:block;z-index:4;border-radius:12px;color:transparent;font-size:0}
+.hotspot:focus-visible{outline:3px solid #ff6b19;outline-offset:2px}
+.anchor{position:absolute;left:0;width:1px;height:1px}
+.features{left:42.2%;top:1.2%;width:7.6%;height:2.5%}
+.how{left:51.7%;top:1.2%;width:10.8%;height:2.5%}
+.languages{left:63.5%;top:1.2%;width:10%;height:2.5%}
+.support{left:74.5%;top:1.2%;width:8.8%;height:2.5%}
+.top-download{left:83.6%;top:1.05%;width:12.6%;height:2.7%}
+.play{left:4.2%;top:23.5%;width:18.2%;height:3.3%}
+.apple{left:23.4%;top:23.5%;width:17.9%;height:3.3%}
+.bottom-download{left:65.4%;top:87.8%;width:26.1%;height:3.8%}
+.privacy{left:34.8%;top:94.8%;width:9.3%;height:2.2%}
+.terms{left:46.2%;top:94.8%;width:10.8%;height:2.2%}
+.delete{left:59.2%;top:94.8%;width:10.7%;height:2.2%}
+.contact{left:71.4%;top:94.8%;width:7.8%;height:2.2%}
+#features{top:46.1%}#how{top:58.5%}#languages{top:81.7%}#download{top:85.9%}#support{top:93.9%}
+.loading{position:absolute;inset:0 0 auto;height:100vh;display:grid;place-items:center;color:#123e31;font-weight:800;background:#fbf6ed;z-index:8}
+.loading.hide{display:none}
+@media(min-width:888px){body{padding:0 12px}}
+</style>
 </head>
-<body><div class="loading"><span><i class="dot"></i>Korean Pantry</span></div>
+<body>
+<div id="top">
+  <div class="loading" id="loading">Korean Pantry</div>
+  <img id="approved-page" alt="Korean Pantry app homepage" width="887" height="1774">
+  <i class="anchor" id="features"></i><i class="anchor" id="how"></i><i class="anchor" id="languages"></i><i class="anchor" id="download"></i><i class="anchor" id="support"></i>
+  <a class="hotspot features" href="#features" aria-label="Features">Features</a>
+  <a class="hotspot how" href="#how" aria-label="How it works">How it works</a>
+  <a class="hotspot languages" href="#languages" aria-label="Languages">Languages</a>
+  <a class="hotspot support" href="#support" aria-label="Support">Support</a>
+  <a class="hotspot top-download" href="#download" aria-label="Download app">Download App</a>
+  <a class="hotspot play" href="#download" aria-label="Google Play">Google Play</a>
+  <a class="hotspot apple" href="#download" aria-label="App Store">App Store</a>
+  <a class="hotspot bottom-download" href="#download" aria-label="Download the app">Download the app</a>
+  <a class="hotspot privacy" href="privacy.html" aria-label="Privacy Policy">Privacy Policy</a>
+  <a class="hotspot terms" href="terms.html" aria-label="Terms of Service">Terms of Service</a>
+  <a class="hotspot delete" href="delete.html" aria-label="Delete Account">Delete Account</a>
+  <a class="hotspot contact" href="mailto:koreanpantry.app@gmail.com" aria-label="Contact Korean Pantry">Contact</a>
+</div>
 <script>
 (async()=>{
-  const files=['site-assets-v5/html-0.txt','site-assets-v5/html-1.txt','site-assets-v5/html-2.txt','site-assets-v5/html-3.txt'];
   try{
-    const parts=await Promise.all(files.map(async f=>{const r=await fetch(f,{cache:'no-store'});if(!r.ok)throw new Error(f);return r.text();}));
-    document.open();document.write(parts.join(''));document.close();
-  }catch(e){document.body.innerHTML='<div class="loading">Korean Pantry</div>';console.error(e);}
+    const files=['site-assets-v9/page-0.txt','site-assets-v9/page-1.txt','site-assets-v9/page-2.txt'];
+    const parts=await Promise.all(files.map(async file=>{
+      const response=await fetch(file,{cache:'no-store'});
+      if(!response.ok)throw new Error(file);
+      return (await response.text()).trim();
+    }));
+    const image=document.getElementById('approved-page');
+    image.onload=()=>document.getElementById('loading').classList.add('hide');
+    image.src='data:image/webp;base64,'+parts.join('');
+  }catch(error){
+    document.getElementById('loading').textContent='Korean Pantry';
+    console.error(error);
+  }
 })();
-</script></body></html>
+</script>
+</body>
+</html>
