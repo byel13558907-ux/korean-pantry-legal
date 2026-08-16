@@ -21,7 +21,9 @@ async function kpLoad(parts,mime,selector){
 }
 Promise.all([
   kpLoad(['site-assets-v4/brand-0.txt'],'image/webp','.brand-img'),
-  kpLoad(['site-assets-v4/tteok-0.txt','site-assets-v4/tteok-1.txt','site-assets-v4/tteok-tail-0.txt','site-assets-v4/tteok-tail-1.txt','site-assets-v4/tteok-tail-2.txt'],'image/webp','.food-img')
+  kpLoad(['site-assets-v6/food.webp.txt'],'image/webp','.food-img'),
+  kpLoad(['site-assets-v6/hero-phone.webp.txt'],'image/webp','.hero-phone-shot'),
+  kpLoad(['site-assets-v6/how-devices.webp.txt'],'image/webp','.how-devices-shot')
 ]).catch(console.error);
 </script>
 </body></html>
