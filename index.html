@@ -1,27 +1,220 @@
 <!doctype html>
-<html lang="ko"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="color-scheme" content="light dark"><title>정책 및 계정 관리 · Korean Pantry</title>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#173a2c">
+<meta name="description" content="Korean Pantry helps you cook Korean food with the ingredients you already have. Track your pantry, discover recipes, scan packaged foods, and cook step by step.">
+<meta property="og:title" content="Korean Pantry">
+<meta property="og:description" content="Cook Korean with what you have.">
+<meta property="og:type" content="website">
+<title>Korean Pantry · Cook Korean with what you have</title>
 <style>
-:root{color-scheme:light dark;--bg:#f6f3ed;--card:#fff;--ink:#17221d;--muted:#687069;--line:#ddd8cf;--accent:#ee7a35;--green:#173d2d;--danger:#a43a34}
-@media(prefers-color-scheme:dark){:root{--bg:#101512;--card:#19211d;--ink:#f4f1ea;--muted:#aab2ac;--line:#313a34;--green:#27553f}}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.65 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
-main{max-width:760px;margin:0 auto;padding:30px 18px 64px}.brand{font-size:12px;font-weight:900;letter-spacing:.13em;color:var(--accent)}
-h1{font-size:31px;line-height:1.18;margin:10px 0 6px}h2{font-size:18px;margin:0 0 8px}p,li{color:var(--muted)}
-.nav{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}.nav a,.btn{border:0;border-radius:12px;padding:10px 13px;background:var(--green);color:#fff;text-decoration:none;font-weight:850}
-.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;margin:14px 0}.updated{color:var(--muted);font-size:13px}
-label{display:block;font-size:12px;font-weight:850;margin:12px 0 5px}input,textarea,select{width:100%;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:12px;padding:12px;font:inherit}
-textarea{min-height:110px;resize:vertical}.btn{width:100%;cursor:pointer}.btn.danger{background:var(--danger)}.status{margin-top:12px;font-weight:850}.small,footer{font-size:12px;color:var(--muted)}
-a.cardlink{display:block;text-decoration:none;color:inherit}.arrow{float:right;color:var(--accent);font-size:20px;font-weight:900}
-</style></head><body><main>
-<div class="brand">KOREAN PANTRY</div>
-<div class="nav"><a href="index.html">홈</a><a href="privacy.html">개인정보</a><a href="terms.html">이용약관</a><a href="delete.html">계정 삭제</a></div>
+:root{
+  --cream:#f7f5ef;
+  --paper:#fffdf9;
+  --ink:#17231d;
+  --muted:#667068;
+  --green:#173a2c;
+  --green2:#234f3c;
+  --orange:#ef7b38;
+  --orange-soft:#fff0e5;
+  --line:#e5e0d6;
+  --shadow:0 18px 55px rgba(26,47,37,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans",Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{width:min(1120px,calc(100% - 36px));margin:0 auto}
+header{position:sticky;top:0;z-index:20;background:rgba(247,245,239,.88);backdrop-filter:blur(16px);border-bottom:1px solid rgba(229,224,214,.8)}
+.navbar{height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;font-weight:900;letter-spacing:-.02em;font-size:20px}
+.brandmark{width:36px;height:36px;border-radius:11px;background:var(--green);display:grid;place-items:center;box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)}
+.brandmark span{color:var(--orange);font-weight:1000;font-size:15px;letter-spacing:-.05em}
+.navlinks{display:flex;align-items:center;gap:24px;font-size:14px;font-weight:760;color:#59635c}
+.navlinks a{text-decoration:none}.navlinks a:hover{color:var(--ink)}
+.pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:8px 12px;font-size:12px;font-weight:850;color:#526058}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--orange)}
+.hero{padding:78px 0 76px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.06fr .94fr;gap:64px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--orange-soft);color:#b7521e;border:1px solid #f6d5c1;border-radius:999px;padding:8px 12px;font-size:12px;font-weight:900;letter-spacing:.04em;text-transform:uppercase}
+h1{font-size:clamp(46px,6.2vw,76px);line-height:.98;letter-spacing:-.055em;margin:22px 0 24px;max-width:770px}
+h1 em{font-style:normal;color:var(--orange)}
+.lead{font-size:19px;line-height:1.7;color:var(--muted);max-width:620px;margin:0 0 28px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 18px;border-radius:14px;text-decoration:none;font-weight:900;font-size:14px;border:1px solid var(--green);transition:.18s ease}
+.btn.primary{background:var(--green);color:#fff;box-shadow:0 10px 25px rgba(23,58,44,.18)}
+.btn.primary:hover{background:var(--green2);transform:translateY(-1px)}
+.btn.secondary{background:transparent;color:var(--green);border-color:#bdc9c1}
+.btn.secondary:hover{background:#fff}
+.micro{margin-top:18px;color:#7b847e;font-size:12px;font-weight:700}
+.phone-stage{position:relative;min-height:540px;display:grid;place-items:center}
+.glow{position:absolute;width:450px;height:450px;border-radius:50%;background:radial-gradient(circle,#f9d5bc 0,#f6e8d9 42%,rgba(247,245,239,0) 72%);filter:blur(2px)}
+.phone{position:relative;width:min(330px,80vw);border-radius:40px;padding:12px;background:#101714;box-shadow:0 32px 70px rgba(18,43,32,.25),inset 0 0 0 1px #3c4741;transform:rotate(2deg)}
+.screen{min-height:520px;border-radius:31px;background:var(--paper);padding:22px 18px;overflow:hidden}
+.screen-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.screen-brand{font-size:11px;font-weight:1000;letter-spacing:.11em;color:var(--orange)}
+.avatar{width:30px;height:30px;border-radius:10px;background:#eef1ed;border:1px solid #dfe5df}
+.screen h3{font-size:25px;line-height:1.1;letter-spacing:-.04em;margin:0 0 7px}
+.screen p{font-size:12px;color:#7a837d;margin:0 0 18px}
+.status-row{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:11px}
+.status{padding:13px;border:1px solid var(--line);background:#fff;border-radius:15px}
+.status b{display:block;font-size:20px;line-height:1.15}.status span{font-size:10px;color:#7a837d;font-weight:750}
+.foodcard{border-radius:18px;background:var(--green);color:#fff;padding:17px;margin:10px 0;position:relative;overflow:hidden}
+.foodcard:after{content:"";position:absolute;width:95px;height:95px;border-radius:50%;background:var(--orange);right:-36px;bottom:-42px;opacity:.88}
+.foodcard small{opacity:.7;font-weight:800}.foodcard strong{display:block;font-size:20px;margin:4px 0 2px}.foodcard span{font-size:11px;opacity:.82}
+.quick{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:12px}
+.quick div{min-height:72px;border:1px solid var(--line);border-radius:14px;background:#fff;padding:11px 8px;font-size:10px;font-weight:850;color:#667068;display:flex;flex-direction:column;justify-content:flex-end}
+.quick i{width:20px;height:20px;border-radius:7px;background:var(--orange-soft);display:block;margin-bottom:8px}
+.floating{position:absolute;padding:12px 15px;border:1px solid var(--line);background:rgba(255,253,249,.94);box-shadow:var(--shadow);border-radius:15px;font-size:12px;font-weight:900;color:var(--green);backdrop-filter:blur(12px)}
+.float-a{left:1%;top:18%;transform:rotate(-4deg)}.float-b{right:0;bottom:13%;transform:rotate(4deg)}
+section{padding:84px 0}
+.section-kicker{font-size:12px;font-weight:950;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:10px}
+.section-title{font-size:clamp(32px,4vw,48px);letter-spacing:-.045em;line-height:1.05;margin:0 0 14px}
+.section-copy{max-width:670px;color:var(--muted);font-size:17px;margin:0 0 36px}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.feature{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:23px;min-height:195px;box-shadow:0 8px 25px rgba(25,43,35,.035)}
+.icon{width:42px;height:42px;border-radius:13px;background:var(--orange-soft);display:grid;place-items:center;margin-bottom:28px;color:var(--orange);font-size:18px;font-weight:1000}
+.feature h3{font-size:18px;letter-spacing:-.025em;margin:0 0 7px}.feature p{font-size:14px;color:var(--muted);margin:0}
+.dark-section{background:var(--green);color:#fff}
+.dark-section .section-copy{color:#c8d2cc}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:40px}
+.stepnum{width:34px;height:34px;border-radius:50%;background:var(--orange);display:grid;place-items:center;font-size:12px;font-weight:1000;margin-bottom:17px}
+.step h3{font-size:20px;margin:0 0 8px}.step p{color:#c8d2cc;margin:0;font-size:14px}
+.language-card{display:grid;grid-template-columns:1fr auto;gap:34px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:28px;padding:34px}
+.langs{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.lang{border:1px solid var(--line);background:#fff;border-radius:999px;padding:10px 13px;font-size:13px;font-weight:850}
+.trust{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.trust-card{border-radius:22px;border:1px solid var(--line);background:var(--paper);padding:25px}
+.trust-card h3{margin:0 0 8px;font-size:20px}.trust-card p{margin:0;color:var(--muted);font-size:14px}
+.legal-links{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}.legal-links a{display:inline-flex;text-decoration:none;border-bottom:1px solid #9ba49e;font-size:13px;font-weight:800;color:#4d5b53}.legal-links a:hover{color:var(--orange);border-color:var(--orange)}
+footer{padding:34px 0 44px;border-top:1px solid var(--line);color:#778079;font-size:12px}
+.footer-row{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}.footer-row strong{color:var(--ink)}
+@media(max-width:850px){
+  .navlinks a:not(.pill){display:none}
+  .hero{padding-top:52px}.hero-grid{grid-template-columns:1fr;gap:34px}.phone-stage{min-height:470px}.phone{width:300px}.screen{min-height:470px}
+  .features,.steps{grid-template-columns:1fr 1fr}.language-card{grid-template-columns:1fr}.langs{justify-content:flex-start}.trust{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .wrap{width:min(100% - 26px,1120px)}.navbar{height:64px}.brand{font-size:17px}.navlinks{gap:8px}.pill{padding:7px 9px;font-size:10px}
+  .hero{padding:42px 0 52px}h1{font-size:46px}.lead{font-size:16px}.phone-stage{min-height:450px}.phone{width:280px}.floating{display:none}
+  section{padding:62px 0}.features,.steps{grid-template-columns:1fr}.feature{min-height:0}.language-card{padding:24px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap navbar">
+    <a class="brand" href="#top" aria-label="Korean Pantry home">
+      <span class="brandmark" aria-hidden="true"><span>KP</span></span>
+      Korean Pantry
+    </a>
+    <nav class="navlinks" aria-label="Main navigation">
+      <a href="#features">Features</a>
+      <a href="#how">How it works</a>
+      <a href="#privacy">Privacy</a>
+      <span class="pill"><span class="dot"></span> Google Play · Coming soon</span>
+    </nav>
+  </div>
+</header>
 
-<h1>정책 및 계정 관리</h1>
-<p class="updated">Korean Pantry의 개인정보 처리, 이용약관과 계정 삭제 안내입니다.</p>
-<a class="card cardlink" href="privacy.html"><span class="arrow">›</span><h2>개인정보처리방침</h2><p>어떤 데이터를 처리하고 어떻게 보호하는지 확인합니다.</p></a>
-<a class="card cardlink" href="terms.html"><span class="arrow">›</span><h2>이용약관</h2><p>서비스 이용과 식품·커뮤니티 관련 안내를 확인합니다.</p></a>
-<a class="card cardlink" href="delete.html"><span class="arrow">›</span><h2>계정 삭제</h2><p>앱 밖에서도 보호된 Korean Pantry 계정을 영구 삭제할 수 있습니다.</p></a>
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Your Korean cooking companion</span>
+        <h1>Cook Korean with what you <em>already have.</em></h1>
+        <p class="lead">Korean Pantry turns the ingredients in your kitchen into practical Korean meal ideas. Track your pantry, discover recipes, scan packaged foods, and cook one step at a time.</p>
+        <div class="actions">
+          <a class="btn primary" href="#features">Explore Korean Pantry</a>
+          <a class="btn secondary" href="#how">See how it works</a>
+        </div>
+        <div class="micro">No ads · 4 languages · Built for everyday Korean cooking</div>
+      </div>
 
-<footer>Korean Pantry · Updated August 15, 2026</footer>
-</main></body></html>
+      <div class="phone-stage" aria-label="Korean Pantry app preview illustration">
+        <div class="glow"></div>
+        <div class="phone">
+          <div class="screen">
+            <div class="screen-top"><span class="screen-brand">KOREAN PANTRY</span><span class="avatar"></span></div>
+            <h3>What can I cook?</h3>
+            <p>Start with what is already in your pantry.</p>
+            <div class="status-row">
+              <div class="status"><b>7</b><span>ingredients saved</span></div>
+              <div class="status"><b>2</b><span>almost ready</span></div>
+            </div>
+            <div class="foodcard"><small>Recipe discovery</small><strong>Tteokbokki</strong><span>See what you have and what you still need.</span></div>
+            <div class="quick"><div><i></i>My Pantry</div><div><i></i>Smart Scan</div><div><i></i>Cook Mode</div></div>
+          </div>
+        </div>
+        <div class="floating float-a">Scan → Pantry → Recipes</div>
+        <div class="floating float-b">Cook step by step</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="wrap">
+      <div class="section-kicker">Made for real kitchens</div>
+      <h2 class="section-title">Less guessing. More cooking.</h2>
+      <p class="section-copy">Korean Pantry keeps the whole flow in one place—from remembering what you own to deciding what to cook and following the recipe.</p>
+      <div class="features">
+        <article class="feature"><div class="icon">01</div><h3>My Pantry</h3><p>Keep track of ingredients you already have and see your kitchen at a glance.</p></article>
+        <article class="feature"><div class="icon">02</div><h3>Recipe Discovery</h3><p>Find Korean dishes based on your pantry and quickly see what is ready or almost ready.</p></article>
+        <article class="feature"><div class="icon">03</div><h3>Smart Scan</h3><p>Scan a barcode, identify one packaged ingredient from a photo, or add an ingredient manually.</p></article>
+        <article class="feature"><div class="icon">04</div><h3>Cook Mode</h3><p>Follow clear, focused cooking steps without having to keep jumping around the recipe.</p></article>
+        <article class="feature"><div class="icon">05</div><h3>Shopping List</h3><p>Keep missing ingredients together so your next grocery run stays simple.</p></article>
+        <article class="feature"><div class="icon">06</div><h3>Pantry Talk</h3><p>Ask cooking questions, share ingredient tips, and talk with other Korean-food fans.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark-section" id="how">
+    <div class="wrap">
+      <div class="section-kicker">Simple by design</div>
+      <h2 class="section-title">From pantry to plate.</h2>
+      <p class="section-copy">You do not need to reorganize your whole kitchen. Add a few ingredients and let Korean Pantry help with the next decision.</p>
+      <div class="steps">
+        <div class="step"><div class="stepnum">1</div><h3>Add what you have</h3><p>Save ingredients manually or use Smart Scan for supported packaged foods.</p></div>
+        <div class="step"><div class="stepnum">2</div><h3>Choose a Korean dish</h3><p>See recipes that match your pantry and check the ingredients you are still missing.</p></div>
+        <div class="step"><div class="stepnum">3</div><h3>Cook with confidence</h3><p>Open Cook Mode and move through the recipe one clear step at a time.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="language-card">
+        <div>
+          <div class="section-kicker">Made to travel</div>
+          <h2 class="section-title" style="font-size:34px">Available in 4 languages.</h2>
+          <p class="section-copy" style="margin:0">Switch languages anytime inside the app. More languages are planned for future updates.</p>
+        </div>
+        <div class="langs" aria-label="Supported languages"><span class="lang">English · EN</span><span class="lang">Español · ES</span><span class="lang">日本語 · JP</span><span class="lang">한국어 · KR</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="privacy" style="padding-top:20px">
+    <div class="wrap">
+      <div class="section-kicker">Clear and transparent</div>
+      <h2 class="section-title">Your data, explained plainly.</h2>
+      <p class="section-copy">Korean Pantry provides public policy pages so you can review how the service handles data and manage your account outside the app.</p>
+      <div class="trust">
+        <article class="trust-card"><h3>No advertising</h3><p>Korean Pantry does not run ads. The app is designed around cooking, not ad inventory.</p></article>
+        <article class="trust-card"><h3>Account control</h3><p>Review the privacy policy and terms, or permanently delete your Korean Pantry account from the web.</p><div class="legal-links"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="delete.html">Delete Account</a></div></article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-row">
+    <div><strong>Korean Pantry</strong> · Cook Korean with what you have.</div>
+    <div>© 2026 Korean Pantry · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="delete.html">Delete account</a></div>
+  </div>
+</footer>
+</body>
+</html>
