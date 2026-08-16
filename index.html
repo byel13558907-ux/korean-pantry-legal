@@ -9,223 +9,39 @@
 <meta property="og:description" content="Cook Korean with what you have.">
 <meta property="og:type" content="website">
 <title>Korean Pantry · Cook Korean with what you have</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23142f25'/%3E%3Cg fill='none' stroke='%23c79a5a' stroke-width='3.4' stroke-linecap='round'%3E%3Cpath d='M18 16v13M23 16v13M28 16v13M18 22h10M23 29l21 21'/%3E%3Cpath d='M44 15c5 5 3 12-3 17L20 52M41 32l-5-5'/%3E%3C/g%3E%3C/svg%3E">
 <style>
-:root{
-  --cream:#f7f5ef;
-  --paper:#fffdf9;
-  --ink:#17231d;
-  --muted:#667068;
-  --green:#173a2c;
-  --green2:#234f3c;
-  --orange:#ef7b38;
-  --orange-soft:#fff0e5;
-  --line:#e5e0d6;
-  --shadow:0 18px 55px rgba(26,47,37,.10);
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--cream);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans",Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
-a{color:inherit}
-.wrap{width:min(1120px,calc(100% - 36px));margin:0 auto}
-header{position:sticky;top:0;z-index:20;background:rgba(247,245,239,.88);backdrop-filter:blur(16px);border-bottom:1px solid rgba(229,224,214,.8)}
-.navbar{height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-.brand{display:flex;align-items:center;gap:11px;text-decoration:none;font-weight:900;letter-spacing:-.02em;font-size:20px}
-.brandmark{width:38px;height:38px;border-radius:11px;display:block;overflow:hidden;flex:0 0 auto;background:var(--green);box-shadow:0 3px 10px rgba(23,58,44,.14),inset 0 0 0 1px rgba(255,255,255,.12)}
-.brandmark img{width:100%;height:100%;display:block;object-fit:cover}
-.navlinks{display:flex;align-items:center;gap:24px;font-size:14px;font-weight:760;color:#59635c}
-.navlinks a{text-decoration:none}.navlinks a:hover{color:var(--ink)}
-.pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:8px 12px;font-size:12px;font-weight:850;color:#526058}
-.dot{width:7px;height:7px;border-radius:50%;background:var(--orange)}
-.hero{padding:78px 0 76px;overflow:hidden}
-.hero-grid{display:grid;grid-template-columns:1.06fr .94fr;gap:64px;align-items:center}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--orange-soft);color:#b7521e;border:1px solid #f6d5c1;border-radius:999px;padding:8px 12px;font-size:12px;font-weight:900;letter-spacing:.04em;text-transform:uppercase}
-h1{font-size:clamp(46px,6.2vw,76px);line-height:.98;letter-spacing:-.055em;margin:22px 0 24px;max-width:770px}
-h1 em{font-style:normal;color:var(--orange)}
-.lead{font-size:19px;line-height:1.7;color:var(--muted);max-width:620px;margin:0 0 28px}
-.actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 18px;border-radius:14px;text-decoration:none;font-weight:900;font-size:14px;border:1px solid var(--green);transition:.18s ease}
-.btn.primary{background:var(--green);color:#fff;box-shadow:0 10px 25px rgba(23,58,44,.18)}
-.btn.primary:hover{background:var(--green2);transform:translateY(-1px)}
-.btn.secondary{background:transparent;color:var(--green);border-color:#bdc9c1}
-.btn.secondary:hover{background:#fff}
-.micro{margin-top:18px;color:#7b847e;font-size:12px;font-weight:700}
-.phone-stage{position:relative;min-height:540px;display:grid;place-items:center}
-.glow{position:absolute;width:450px;height:450px;border-radius:50%;background:radial-gradient(circle,#f9d5bc 0,#f6e8d9 42%,rgba(247,245,239,0) 72%);filter:blur(2px)}
-.phone{position:relative;width:min(330px,80vw);border-radius:40px;padding:12px;background:#101714;box-shadow:0 32px 70px rgba(18,43,32,.25),inset 0 0 0 1px #3c4741;transform:rotate(2deg)}
-.screen{min-height:520px;border-radius:31px;background:var(--paper);padding:22px 18px;overflow:hidden}
-.screen-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
-.screen-brand{font-size:11px;font-weight:1000;letter-spacing:.11em;color:var(--orange)}
-.avatar{width:30px;height:30px;border-radius:10px;background:#eef1ed;border:1px solid #dfe5df}
-.screen h3{font-size:25px;line-height:1.1;letter-spacing:-.04em;margin:0 0 7px}
-.screen p{font-size:12px;color:#7a837d;margin:0 0 18px}
-.status-row{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:11px}
-.status{padding:13px;border:1px solid var(--line);background:#fff;border-radius:15px}
-.status b{display:block;font-size:20px;line-height:1.15}.status span{font-size:10px;color:#7a837d;font-weight:750}
-.foodcard{border-radius:18px;background:var(--green);color:#fff;padding:17px;margin:10px 0;position:relative;overflow:hidden}
-.foodcard:after{content:"";position:absolute;width:95px;height:95px;border-radius:50%;background:var(--orange);right:-36px;bottom:-42px;opacity:.88}
-.foodcard small{opacity:.7;font-weight:800}.foodcard strong{display:block;font-size:20px;margin:4px 0 2px}.foodcard span{font-size:11px;opacity:.82}
-.quick{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:12px}
-.quick div{min-height:72px;border:1px solid var(--line);border-radius:14px;background:#fff;padding:11px 8px;font-size:10px;font-weight:850;color:#667068;display:flex;flex-direction:column;justify-content:flex-end}
-.quick i{width:20px;height:20px;border-radius:7px;background:var(--orange-soft);display:block;margin-bottom:8px}
-.floating{position:absolute;padding:12px 15px;border:1px solid var(--line);background:rgba(255,253,249,.94);box-shadow:var(--shadow);border-radius:15px;font-size:12px;font-weight:900;color:var(--green);backdrop-filter:blur(12px)}
-.float-a{left:1%;top:18%;transform:rotate(-4deg)}.float-b{right:0;bottom:13%;transform:rotate(4deg)}
-section{padding:84px 0}
-.section-kicker{font-size:12px;font-weight:950;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:10px}
-.section-title{font-size:clamp(32px,4vw,48px);letter-spacing:-.045em;line-height:1.05;margin:0 0 14px}
-.section-copy{max-width:670px;color:var(--muted);font-size:17px;margin:0 0 36px}
-.features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.feature{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:23px;min-height:195px;box-shadow:0 8px 25px rgba(25,43,35,.035)}
-.icon{width:42px;height:42px;border-radius:13px;background:var(--orange-soft);display:grid;place-items:center;margin-bottom:28px;color:var(--orange);font-size:18px;font-weight:1000}
-.feature h3{font-size:18px;letter-spacing:-.025em;margin:0 0 7px}.feature p{font-size:14px;color:var(--muted);margin:0}
-.dark-section{background:var(--green);color:#fff}
-.dark-section .section-copy{color:#c8d2cc}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:40px}
-.stepnum{width:34px;height:34px;border-radius:50%;background:var(--orange);display:grid;place-items:center;font-size:12px;font-weight:1000;margin-bottom:17px}
-.step h3{font-size:20px;margin:0 0 8px}.step p{color:#c8d2cc;margin:0;font-size:14px}
-.language-card{display:grid;grid-template-columns:1fr auto;gap:34px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:28px;padding:34px}
-.langs{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
-.lang{border:1px solid var(--line);background:#fff;border-radius:999px;padding:10px 13px;font-size:13px;font-weight:850}
-.trust{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.trust-card{border-radius:22px;border:1px solid var(--line);background:var(--paper);padding:25px}
-.trust-card h3{margin:0 0 8px;font-size:20px}.trust-card p{margin:0;color:var(--muted);font-size:14px}
-.legal-links{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}.legal-links a{display:inline-flex;text-decoration:none;border-bottom:1px solid #9ba49e;font-size:13px;font-weight:800;color:#4d5b53}.legal-links a:hover{color:var(--orange);border-color:var(--orange)}
-footer{padding:34px 0 44px;border-top:1px solid var(--line);color:#778079;font-size:12px}
-.footer-row{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}.footer-row strong{color:var(--ink)}
-@media(max-width:850px){
-  .navlinks a:not(.pill){display:none}
-  .hero{padding-top:52px}.hero-grid{grid-template-columns:1fr;gap:34px}.phone-stage{min-height:470px}.phone{width:300px}.screen{min-height:470px}
-  .features,.steps{grid-template-columns:1fr 1fr}.language-card{grid-template-columns:1fr}.langs{justify-content:flex-start}.trust{grid-template-columns:1fr}
-}
-@media(max-width:560px){
-  .wrap{width:min(100% - 26px,1120px)}.navbar{height:64px}.brand{font-size:17px}.navlinks{gap:8px}.pill{padding:7px 9px;font-size:10px}
-  .hero{padding:42px 0 52px}h1{font-size:46px}.lead{font-size:16px}.phone-stage{min-height:450px}.phone{width:280px}.floating{display:none}
-  section{padding:62px 0}.features,.steps{grid-template-columns:1fr}.feature{min-height:0}.language-card{padding:24px}
-}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+:root{--cream:#f7f4ee;--paper:#fffdf9;--ink:#18231e;--muted:#69726c;--green:#173a2c;--green-2:#244f3c;--orange:#ef7a36;--gold:#c79a5a;--peach:#f3cdb6;--line:#e5dfd5;--shadow:0 24px 60px rgba(26,47,37,.12);--soft-shadow:0 10px 30px rgba(26,47,37,.07)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans KR","Noto Sans",Arial,sans-serif;line-height:1.58;-webkit-font-smoothing:antialiased}a{color:inherit}.wrap{width:min(1160px,calc(100% - 40px));margin:0 auto}
+header{position:sticky;top:0;z-index:30;background:rgba(247,244,238,.9);backdrop-filter:blur(16px);border-bottom:1px solid rgba(229,223,213,.78)}.navbar{height:74px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-weight:900;font-size:20px;letter-spacing:-.03em}.brandmark{width:42px;height:42px;border-radius:13px;box-shadow:0 8px 20px rgba(23,58,44,.15);flex:0 0 auto}.navlinks{display:flex;align-items:center;gap:26px;font-size:13px;font-weight:800;color:#667068}.navlinks a{text-decoration:none}.navlinks a:hover{color:var(--ink)}.store-pill{display:inline-flex;align-items:center;gap:8px;padding:9px 13px;border:1px solid var(--line);border-radius:999px;background:rgba(255,253,249,.9);color:#516057;font-size:12px;font-weight:900}.store-pill i{width:7px;height:7px;background:var(--orange);border-radius:50%}
+.hero{padding:84px 0 92px;overflow:hidden}.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:64px;align-items:center}.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid #f1d3c1;background:#fff2e9;color:#b95420;border-radius:999px;font-size:12px;font-weight:900;letter-spacing:.06em;text-transform:uppercase}.eyebrow:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--orange)}h1{font-size:clamp(52px,6.5vw,84px);line-height:.96;letter-spacing:-.06em;margin:22px 0 24px;max-width:760px}h1 em{font-style:normal;color:var(--orange)}.lead{font-size:19px;line-height:1.72;color:var(--muted);max-width:620px;margin:0 0 30px}.actions{display:flex;gap:12px;flex-wrap:wrap}.btn{min-height:52px;padding:0 19px;border-radius:15px;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;font-size:14px;font-weight:900;border:1px solid var(--green);transition:.18s ease}.btn.primary{background:var(--green);color:#fff;box-shadow:0 12px 28px rgba(23,58,44,.18)}.btn.primary:hover{transform:translateY(-1px);background:var(--green-2)}.btn.secondary{background:rgba(255,253,249,.7);color:var(--green);border-color:#c9d2cc}.btn.secondary:hover{background:#fff}.meta{display:flex;gap:14px;flex-wrap:wrap;margin-top:22px;color:#737d76;font-size:12px;font-weight:800}.meta span{display:inline-flex;align-items:center;gap:7px}.meta i{width:5px;height:5px;border-radius:50%;background:var(--gold)}
+.visual{position:relative;min-height:600px}.glow{position:absolute;inset:80px 10px 20px 10px;background:radial-gradient(circle at 45% 35%,#f7d9c2 0,#f3e6d8 44%,rgba(247,244,238,0) 73%);filter:blur(2px)}.food-frame{position:absolute;left:0;right:58px;top:38px;height:390px;border-radius:34px;overflow:hidden;background:linear-gradient(135deg,#5e2e22,#c94e29);box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.55)}.food-frame img{width:100%;height:100%;object-fit:cover;display:block;opacity:0;transform:scale(1.01);transition:opacity .35s ease}.food-frame img.ready{opacity:1}.food-frame:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(15,25,20,.5),transparent 55%)}.food-caption{position:absolute;left:24px;right:24px;bottom:22px;color:#fff;z-index:2}.food-caption small{display:block;font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;opacity:.82}.food-caption strong{display:block;font-size:26px;letter-spacing:-.04em;margin-top:3px}.food-caption span{display:block;font-size:12px;opacity:.82;margin-top:2px}
+.phone-card{position:absolute;right:0;bottom:26px;width:310px;background:var(--paper);border:1px solid var(--line);border-radius:30px;padding:20px;box-shadow:0 28px 65px rgba(23,58,44,.2);transform:rotate(2deg)}.phone-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}.mini-brand{display:flex;align-items:center;gap:8px;font-size:10px;font-weight:950;letter-spacing:.12em;color:#6b746e}.mini-brand svg{width:25px;height:25px;border-radius:8px}.phone-dots{display:flex;gap:5px}.phone-dots i{width:4px;height:4px;border-radius:50%;background:#d8d2c7}.phone-card h3{font-size:27px;line-height:1.03;letter-spacing:-.045em;margin:0 0 10px}.phone-card p{font-size:12px;color:#7a837d;margin:0 0 16px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.stat{background:#f6f2eb;border:1px solid #ece6dd;border-radius:13px;padding:11px 9px}.stat b{font-size:19px;display:block;line-height:1}.stat span{font-size:9px;color:#7a837d;font-weight:800}.phone-cta{margin-top:12px;border-radius:13px;background:var(--green);color:white;text-align:center;padding:12px;font-size:11px;font-weight:900}.float-note{position:absolute;left:-8px;bottom:68px;padding:11px 14px;border-radius:14px;background:rgba(255,253,249,.93);border:1px solid var(--line);box-shadow:var(--soft-shadow);font-size:12px;font-weight:900;color:var(--green);backdrop-filter:blur(12px)}
+.brand-strip{padding:0 0 38px}.brand-strip-inner{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);background:rgba(255,253,249,.72);border-radius:22px;overflow:hidden}.brand-strip-inner div{padding:18px 20px;border-right:1px solid var(--line)}.brand-strip-inner div:last-child{border-right:0}.brand-strip b{display:block;font-size:13px}.brand-strip span{font-size:11px;color:#7b847e}
+section{padding:86px 0}.section-kicker{font-size:11px;font-weight:950;letter-spacing:.13em;text-transform:uppercase;color:var(--orange);margin-bottom:11px}.section-title{font-size:clamp(34px,4.4vw,52px);line-height:1.03;letter-spacing:-.05em;margin:0 0 15px}.section-copy{font-size:17px;color:var(--muted);max-width:680px;margin:0 0 36px}.features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.feature{min-height:205px;background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:24px;box-shadow:0 8px 28px rgba(25,43,35,.035);transition:.18s ease}.feature:hover{transform:translateY(-2px);box-shadow:var(--soft-shadow)}.feature-no{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:#fff0e7;color:var(--orange);font-weight:950;font-size:13px;margin-bottom:30px}.feature h3{font-size:19px;letter-spacing:-.03em;margin:0 0 7px}.feature p{font-size:14px;color:var(--muted);margin:0}
+.recipe-showcase{padding-top:32px}.recipe-panel{display:grid;grid-template-columns:1.03fr .97fr;min-height:470px;border-radius:32px;overflow:hidden;background:var(--green);box-shadow:0 20px 48px rgba(23,58,44,.13)}.recipe-photo{position:relative;background:#6f2c22;min-height:420px}.recipe-photo img{width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity .35s ease}.recipe-photo img.ready{opacity:1}.recipe-copy{padding:54px;color:#fff;display:flex;flex-direction:column;justify-content:center}.recipe-copy .section-kicker{color:#f2b38e}.recipe-copy h2{font-size:clamp(36px,4vw,54px);line-height:1;letter-spacing:-.05em;margin:0 0 18px}.recipe-copy p{color:#cbd6d0;font-size:16px;margin:0 0 24px}.recipe-tag{display:inline-flex;align-self:flex-start;padding:9px 12px;border:1px solid rgba(255,255,255,.16);border-radius:999px;background:rgba(255,255,255,.07);font-size:11px;font-weight:900}
+.dark{background:#122b22;color:#fff}.dark .section-copy{color:#c3cec8}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;margin-top:42px}.stepnum{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--orange);font-size:12px;font-weight:950;margin-bottom:18px}.step h3{font-size:21px;margin:0 0 8px}.step p{margin:0;color:#c3cec8;font-size:14px}
+.language-card{display:grid;grid-template-columns:1fr auto;gap:36px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:28px;padding:36px;box-shadow:0 10px 30px rgba(25,43,35,.04)}.langs{display:flex;justify-content:flex-end;gap:9px;flex-wrap:wrap}.lang{padding:10px 13px;border:1px solid var(--line);border-radius:999px;background:#fff;font-size:13px;font-weight:850}.trust{display:grid;grid-template-columns:1fr 1fr;gap:14px}.trust-card{background:var(--paper);border:1px solid var(--line);border-radius:23px;padding:25px}.trust-card h3{font-size:20px;margin:0 0 7px}.trust-card p{font-size:14px;color:var(--muted);margin:0}.legal-links{display:flex;gap:13px;flex-wrap:wrap;margin-top:18px}.legal-links a{text-decoration:none;font-size:13px;font-weight:850;border-bottom:1px solid #9fa8a1}.legal-links a:hover{color:var(--orange);border-color:var(--orange)}
+footer{padding:35px 0 46px;border-top:1px solid var(--line);font-size:12px;color:#7b847e}.footer-row{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}.footer-brand{display:flex;align-items:center;gap:9px;color:var(--ink);font-weight:900}.footer-brand svg{width:28px;height:28px;border-radius:9px}
+@media(max-width:900px){.navlinks a:not(.store-pill){display:none}.hero{padding-top:58px}.hero-grid{grid-template-columns:1fr;gap:30px}.visual{min-height:560px}.features{grid-template-columns:1fr 1fr}.recipe-panel{grid-template-columns:1fr}.recipe-photo{min-height:380px}.language-card{grid-template-columns:1fr}.langs{justify-content:flex-start}.trust{grid-template-columns:1fr}}
+@media(max-width:580px){.wrap{width:min(100% - 26px,1160px)}.navbar{height:66px}.brand{font-size:17px}.brandmark{width:38px;height:38px}.store-pill{font-size:10px;padding:7px 9px}.hero{padding:42px 0 60px}h1{font-size:48px}.lead{font-size:16px}.visual{min-height:500px}.food-frame{right:18px;height:310px;border-radius:27px}.phone-card{width:258px;padding:16px;bottom:16px}.phone-card h3{font-size:23px}.float-note{display:none}.brand-strip-inner{grid-template-columns:1fr 1fr}.brand-strip-inner div:nth-child(2){border-right:0}.brand-strip-inner div:nth-child(-n+2){border-bottom:1px solid var(--line)}.features,.steps{grid-template-columns:1fr}.feature{min-height:0}.recipe-copy{padding:34px 26px}.recipe-photo{min-height:300px}.language-card{padding:25px}section{padding:66px 0}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.feature,.food-frame img,.recipe-photo img{transition:none}}
 </style>
 </head>
 <body>
-<header>
-  <div class="wrap navbar">
-    <a class="brand" href="#top" aria-label="Korean Pantry home">
-      <span class="brandmark" aria-hidden="true"><img id="korean-pantry-app-icon" src="data:image/png;base64,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" alt=""></span>
-      Korean Pantry
-    </a>
-    <nav class="navlinks" aria-label="Main navigation">
-      <a href="#features">Features</a>
-      <a href="#how">How it works</a>
-      <a href="#privacy">Privacy</a>
-      <span class="pill"><span class="dot"></span> Google Play · Coming soon</span>
-    </nav>
-  </div>
-</header>
-
+<header><div class="wrap navbar"><a class="brand" href="#top" aria-label="Korean Pantry home"><svg class="brandmark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#142f25"/><g fill="none" stroke="#c79a5a" stroke-width="3.4" stroke-linecap="round"><path d="M18 16v13M23 16v13M28 16v13M18 22h10M23 29l21 21"/><path d="M44 15c5 5 3 12-3 17L20 52M41 32l-5-5"/></g></svg><span>Korean Pantry</span></a><nav class="navlinks" aria-label="Main navigation"><a href="#features">Features</a><a href="#how">How it works</a><a href="#languages">Languages</a><a href="#privacy">Privacy</a><span class="store-pill"><i></i>Google Play · Coming soon</span></nav></div></header>
 <main id="top">
-  <section class="hero">
-    <div class="wrap hero-grid">
-      <div>
-        <span class="eyebrow">Your Korean cooking companion</span>
-        <h1>Cook Korean with what you <em>already have.</em></h1>
-        <p class="lead">Korean Pantry turns the ingredients in your kitchen into practical Korean meal ideas. Track your pantry, discover recipes, scan packaged foods, and cook one step at a time.</p>
-        <div class="actions">
-          <a class="btn primary" href="#features">Explore Korean Pantry</a>
-          <a class="btn secondary" href="#how">See how it works</a>
-        </div>
-        <div class="micro">No ads · 4 languages · Built for everyday Korean cooking</div>
-      </div>
-
-      <div class="phone-stage" aria-label="Korean Pantry app preview illustration">
-        <div class="glow"></div>
-        <div class="phone">
-          <div class="screen">
-            <div class="screen-top"><span class="screen-brand">KOREAN PANTRY</span><span class="avatar"></span></div>
-            <h3>What can I cook?</h3>
-            <p>Start with what is already in your pantry.</p>
-            <div class="status-row">
-              <div class="status"><b>7</b><span>ingredients saved</span></div>
-              <div class="status"><b>2</b><span>almost ready</span></div>
-            </div>
-            <div class="foodcard"><small>Recipe discovery</small><strong>Tteokbokki</strong><span>See what you have and what you still need.</span></div>
-            <div class="quick"><div><i></i>My Pantry</div><div><i></i>Smart Scan</div><div><i></i>Cook Mode</div></div>
-          </div>
-        </div>
-        <div class="floating float-a">Scan → Pantry → Recipes</div>
-        <div class="floating float-b">Cook step by step</div>
-      </div>
-    </div>
-  </section>
-
-  <section id="features">
-    <div class="wrap">
-      <div class="section-kicker">Made for real kitchens</div>
-      <h2 class="section-title">Less guessing. More cooking.</h2>
-      <p class="section-copy">Korean Pantry keeps the whole flow in one place—from remembering what you own to deciding what to cook and following the recipe.</p>
-      <div class="features">
-        <article class="feature"><div class="icon">01</div><h3>My Pantry</h3><p>Keep track of ingredients you already have and see your kitchen at a glance.</p></article>
-        <article class="feature"><div class="icon">02</div><h3>Recipe Discovery</h3><p>Find Korean dishes based on your pantry and quickly see what is ready or almost ready.</p></article>
-        <article class="feature"><div class="icon">03</div><h3>Smart Scan</h3><p>Scan a barcode, identify one packaged ingredient from a photo, or add an ingredient manually.</p></article>
-        <article class="feature"><div class="icon">04</div><h3>Cook Mode</h3><p>Follow clear, focused cooking steps without having to keep jumping around the recipe.</p></article>
-        <article class="feature"><div class="icon">05</div><h3>Shopping List</h3><p>Keep missing ingredients together so your next grocery run stays simple.</p></article>
-        <article class="feature"><div class="icon">06</div><h3>Pantry Talk</h3><p>Ask cooking questions, share ingredient tips, and talk with other Korean-food fans.</p></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="dark-section" id="how">
-    <div class="wrap">
-      <div class="section-kicker">Simple by design</div>
-      <h2 class="section-title">From pantry to plate.</h2>
-      <p class="section-copy">You do not need to reorganize your whole kitchen. Add a few ingredients and let Korean Pantry help with the next decision.</p>
-      <div class="steps">
-        <div class="step"><div class="stepnum">1</div><h3>Add what you have</h3><p>Save ingredients manually or use Smart Scan for supported packaged foods.</p></div>
-        <div class="step"><div class="stepnum">2</div><h3>Choose a Korean dish</h3><p>See recipes that match your pantry and check the ingredients you are still missing.</p></div>
-        <div class="step"><div class="stepnum">3</div><h3>Cook with confidence</h3><p>Open Cook Mode and move through the recipe one clear step at a time.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <div class="language-card">
-        <div>
-          <div class="section-kicker">Made to travel</div>
-          <h2 class="section-title" style="font-size:34px">Available in 4 languages.</h2>
-          <p class="section-copy" style="margin:0">Switch languages anytime inside the app. More languages are planned for future updates.</p>
-        </div>
-        <div class="langs" aria-label="Supported languages"><span class="lang">English · EN</span><span class="lang">Español · ES</span><span class="lang">日本語 · JP</span><span class="lang">한국어 · KR</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="privacy" style="padding-top:20px">
-    <div class="wrap">
-      <div class="section-kicker">Clear and transparent</div>
-      <h2 class="section-title">Your data, explained plainly.</h2>
-      <p class="section-copy">Korean Pantry provides public policy pages so you can review how the service handles data and manage your account outside the app.</p>
-      <div class="trust">
-        <article class="trust-card"><h3>No advertising</h3><p>Korean Pantry does not run ads. The app is designed around cooking, not ad inventory.</p></article>
-        <article class="trust-card"><h3>Account control</h3><p>Review the privacy policy and terms, or permanently delete your Korean Pantry account from the web.</p><div class="legal-links"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="delete.html">Delete Account</a></div></article>
-      </div>
-    </div>
-  </section>
+<section class="hero"><div class="wrap hero-grid"><div><span class="eyebrow">Your Korean cooking companion</span><h1>Cook Korean with what you <em>already have.</em></h1><p class="lead">Korean Pantry turns the ingredients in your kitchen into practical Korean meal ideas. Track your pantry, discover recipes, scan packaged foods, and cook one step at a time.</p><div class="actions"><a class="btn primary" href="#features">Explore Korean Pantry</a><a class="btn secondary" href="#how">See how it works</a></div><div class="meta"><span><i></i>No ads</span><span><i></i>4 languages</span><span><i></i>Built for everyday Korean cooking</span></div></div><div class="visual"><div class="glow"></div><div class="food-frame"><img class="tteok-img" alt="A warm bowl of tteokbokki, Korean spicy rice cakes"><div class="food-caption"><small>Korean Pantry recipe</small><strong>Tteokbokki</strong><span>One familiar dish. A simpler way to get cooking.</span></div></div><div class="phone-card"><div class="phone-top"><div class="mini-brand"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#142f25"/><g fill="none" stroke="#c79a5a" stroke-width="3.4" stroke-linecap="round"><path d="M18 16v13M23 16v13M28 16v13M18 22h10M23 29l21 21"/><path d="M44 15c5 5 3 12-3 17L20 52M41 32l-5-5"/></g></svg>KOREAN PANTRY</div><div class="phone-dots"><i></i><i></i><i></i></div></div><h3>What can I cook with what I have?</h3><p>Add what is in your kitchen to My Pantry and see what is within reach.</p><div class="stats"><div class="stat"><b>7</b><span>items saved</span></div><div class="stat"><b>0</b><span>ready now</span></div><div class="stat"><b>2</b><span>almost ready</span></div></div><div class="phone-cta">See what I can cook →</div></div><div class="float-note">Pantry → Recipes → Cook</div></div></div></section>
+<div class="brand-strip"><div class="wrap"><div class="brand-strip-inner"><div><b>My Pantry</b><span>Know what you have</span></div><div><b>Smart Scan</b><span>Add packaged foods faster</span></div><div><b>Cook Mode</b><span>Follow clear steps</span></div><div><b>Pantry Talk</b><span>Ask and share</span></div></div></div></div>
+<section id="features"><div class="wrap"><div class="section-kicker">Made for real kitchens</div><h2 class="section-title">Less guessing. More cooking.</h2><p class="section-copy">Korean Pantry keeps the whole flow in one place—from remembering what you own to deciding what to cook and following the recipe.</p><div class="features"><article class="feature"><div class="feature-no">01</div><h3>My Pantry</h3><p>Keep track of the ingredients you already have and see your kitchen at a glance.</p></article><article class="feature"><div class="feature-no">02</div><h3>Recipe Discovery</h3><p>Find Korean dishes based on your pantry and quickly see what is ready or almost ready.</p></article><article class="feature"><div class="feature-no">03</div><h3>Smart Scan</h3><p>Scan a barcode, identify one packaged ingredient from a photo, or add it manually.</p></article><article class="feature"><div class="feature-no">04</div><h3>Cook Mode</h3><p>Follow focused, step-by-step cooking instructions without losing your place.</p></article><article class="feature"><div class="feature-no">05</div><h3>Shopping List</h3><p>Keep missing ingredients together so the next grocery run stays simple.</p></article><article class="feature"><div class="feature-no">06</div><h3>Pantry Talk</h3><p>Ask cooking questions, share ingredient tips, and talk with other K-food fans.</p></article></div></div></section>
+<section class="recipe-showcase"><div class="wrap"><div class="recipe-panel"><div class="recipe-photo"><img class="tteok-img" alt="Tteokbokki, Korean spicy rice cakes"></div><div class="recipe-copy"><div class="section-kicker">From pantry to plate</div><h2>Korean food should feel doable.</h2><p>Start with the ingredients you already own. Korean Pantry helps you spot the dishes you can make now, what you are only a few ingredients away from, and what to do next.</p><span class="recipe-tag">Recipe example · Tteokbokki</span></div></div></div></section>
+<section class="dark" id="how"><div class="wrap"><div class="section-kicker">Simple by design</div><h2 class="section-title">Three steps from pantry to plate.</h2><p class="section-copy">You do not need to reorganize your whole kitchen. Add a few ingredients and let Korean Pantry help with the next decision.</p><div class="steps"><div class="step"><div class="stepnum">1</div><h3>Add what you have</h3><p>Save ingredients manually or use Smart Scan for supported packaged foods.</p></div><div class="step"><div class="stepnum">2</div><h3>Choose a Korean dish</h3><p>See recipes that match your pantry and check the ingredients you are still missing.</p></div><div class="step"><div class="stepnum">3</div><h3>Cook with confidence</h3><p>Open Cook Mode and move through the recipe one clear step at a time.</p></div></div></div></section>
+<section id="languages"><div class="wrap"><div class="language-card"><div><div class="section-kicker">Made to travel</div><h2 class="section-title" style="font-size:36px">Available in 4 languages.</h2><p class="section-copy" style="margin:0">Switch languages anytime inside the app. More languages are planned for future updates.</p></div><div class="langs"><span class="lang">English · EN</span><span class="lang">Español · ES</span><span class="lang">日本語 · JP</span><span class="lang">한국어 · KR</span></div></div></div></section>
+<section id="privacy" style="padding-top:20px"><div class="wrap"><div class="section-kicker">Clear and transparent</div><h2 class="section-title">Your account stays in your hands.</h2><p class="section-copy">Review how Korean Pantry handles service data, read the terms, or manage account deletion from the web.</p><div class="trust"><article class="trust-card"><h3>No advertising</h3><p>Korean Pantry does not run ads. The experience is designed around cooking, not ad inventory.</p></article><article class="trust-card"><h3>Account control</h3><p>Public policy pages are available outside the app for transparency and account management.</p><div class="legal-links"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="delete.html">Delete Account</a></div></article></div></div></section>
 </main>
-
-<footer>
-  <div class="wrap footer-row">
-    <div><strong>Korean Pantry</strong> · Cook Korean with what you have.</div>
-    <div>© 2026 Korean Pantry · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="delete.html">Delete account</a></div>
-  </div>
-</footer>
+<footer><div class="wrap footer-row"><div class="footer-brand"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#142f25"/><g fill="none" stroke="#c79a5a" stroke-width="3.4" stroke-linecap="round"><path d="M18 16v13M23 16v13M28 16v13M18 22h10M23 29l21 21"/><path d="M44 15c5 5 3 12-3 17L20 52M41 32l-5-5"/></g></svg>Korean Pantry</div><div>© 2026 Korean Pantry · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="delete.html">Delete account</a></div></div></footer>
 <script>
-(function(){
-  var icon=document.getElementById('korean-pantry-app-icon');
-  if(!icon)return;
-  var favicon=document.createElement('link');
-  favicon.rel='icon';
-  favicon.type='image/png';
-  favicon.href=icon.src;
-  document.head.appendChild(favicon);
-})();
+(async()=>{try{const parts=await Promise.all([0,1,2,3].map(i=>fetch(`assets/tteok-${i}.txt`).then(r=>{if(!r.ok)throw new Error('image');return r.text()})));const src='data:image/jpeg;base64,'+parts.join('');document.querySelectorAll('.tteok-img').forEach(img=>{img.onload=()=>img.classList.add('ready');img.src=src});}catch(e){document.querySelectorAll('.tteok-img').forEach(img=>img.style.display='none')}})();
 </script>
 </body>
 </html>
