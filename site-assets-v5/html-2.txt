@@ -11,11 +11,15 @@
 .device{display:none}
 @media(max-width:760px){.hero-phone-shot{right:50%;transform:translateX(50%);top:0}.hero-food{left:50%;transform:translateX(-75%);width:470px;height:270px}.how-devices-shot{left:50%;right:auto;transform:translateX(-50%)}}
 @media(max-width:580px){.hero h1{font-size:45px}.hero-phone-shot{width:300px;height:554px;right:0;transform:none;top:-18px}.hero-food{left:-98px;transform:none;width:365px;height:210px}.how-devices-shot{width:330px;height:auto;top:0}}
+
+/* final approved alignment */
+.hero h1{font-size:clamp(50px,3.9vw,54px)!important;max-width:570px!important;white-space:nowrap!important}
+.hero h1 span{white-space:nowrap!important}
 </style>
 </head>
-<body><div class="page">
+<body><div class="page" id="top">
 <header><div class="wrap nav"><a class="brand" href="#top"><img class="brand-img" alt="Korean Pantry icon"><span>Korean Pantry</span></a><nav class="navlinks"><a href="#features">Features</a><a href="#how">How it works</a><a href="#languages">Languages</a><a href="#support">Support</a><a class="nav-download" href="#download">Download App</a></nav></div></header>
-<main id="top">
+<main>
 <section class="hero"><div class="wrap hero-grid"><div class="hero-copy"><div class="tag"><b>♥</b> Made for K-Home Cooking</div><h1>Cook Korean <span>with what you have.</span></h1><p class="lead">Korean Pantry helps you find delicious Korean recipes using the ingredients already in your kitchen.<br>Smart. Simple. No waste.</p><div class="stores">
 <a class="store" href="#download" aria-label="Google Play coming soon"><svg viewBox="0 0 64 64" aria-hidden="true"><path fill="#34A853" d="M8 6v52l29-26z"/><path fill="#4285F4" d="M8 6l34 19-5 7z"/><path fill="#FBBC04" d="M8 58l34-19-5-7z"/><path fill="#EA4335" d="M42 25l12 7-12 7-5-7z"/></svg><span class="store-copy"><small>GET IT ON</small><strong>Google Play</strong></span></a>
 <a class="store" href="#download" aria-label="App Store coming soon"><svg viewBox="0 0 512 512"><path fill="#fff" d="M350.5 262.2c-.5-52.1 42.6-77.2 44.6-78.4-24.4-35.5-62.2-40.4-75.6-40.8-31.8-3.3-62.7 19-78.9 19-16.5 0-41.5-18.7-68.4-18.1-34.6.5-67 20.6-84.8 51.8-36.6 63.4-9.3 156.5 25.8 207.8 17.6 25.2 38.1 53.4 65 52.4 26.3-1.1 36.1-16.8 67.8-16.8 31.4 0 40.6 16.8 68 16.2 28.2-.5 46-25.2 63-50.7 20.4-28.9 28.6-57.4 28.9-58.9-.7-.2-54.8-21-55.4-83.5zM298.7 109.2c14.2-17.8 23.9-42 21.2-66.2-20.6.9-46.3 14.3-61.1 31.7-13.1 15.4-24.8 40.4-21.8 63.7 23.2 1.8 47.3-11.7 61.7-29.2z"/></svg><span class="store-copy"><small>Download on the</small><strong>App Store</strong></span></a>
